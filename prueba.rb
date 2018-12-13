@@ -35,13 +35,25 @@ end
       end
     end
       
-  def total_absences
 
+def name_average
 
-  end
+end
 
-  def approved_students
+def total_absences
 
-  end
+end
+
+def approved_students
+
+end
    
-   welcome_message
+def create_data_structure
+  lines = []
+File.open('alumnos.csv',  'r') {|file| lines = file.readlines}
+puts lines
+
+end
+
+#welcome_message
+create_data_structure
