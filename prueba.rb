@@ -1,10 +1,9 @@
  
 def  welcome_message
   puts "#################################################################"
-  puts "Bienvenido al sitema de gestion de estudiantes, por favor selecciona una opción"
+  puts "Bienvenido al sistema de gestion de estudiantes, por favor selecciona una opción"
   puts "#################################################################"
   puts "\n"
-
   show_menu
 end
 
@@ -33,12 +32,11 @@ end
         puts "Opción  invalida, coloque una opción correcta."
         show_menu
       end
-    end
+   end
       
 
-def name_average
 
-end
+
 
 def total_absences
 
@@ -48,12 +46,41 @@ def approved_students
 
 end
    
-def create_data_structure
+def  total (notes)
+  
+       end
+  
+   
+   def create_data_structure(file)
   lines = []
-File.open('alumnos.csv',  'r') {|file| lines = file.readlines}
-puts lines
-
+  array_of_hashes = []
+  File.open(file,  'r') {|file| lines = file.readlines}
+  lines = lines.map {|e| e.chomp.split(', ')}
+  lines.each do  |student_line|
+    student_hash = {
+      name: student_line.shift,
+      grades: student_line
+    }
+    array_of_hashes << student_hash
+  end
+  return array_of_hashes
 end
 
-#welcome_message
-create_data_structure
+#print create_data_structure('alumnos.csv')
+
+def name_average(average)
+  file = File.open('average.csv', 'w')
+    students= create_data_structure('students.csv')
+    students.each do |student|
+      
+    end
+    file.close
+  
+  end
+  name_average("average.csv")
+  
+
+  
+
+welcome_message
+
